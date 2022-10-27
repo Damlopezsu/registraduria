@@ -5,24 +5,24 @@ class ControladorRol():
     def index(self):
          print("Listar todos los Rol")
          unRol = {
-             "_id_Rol": "abc123",
-             "nombre_Rol": "123",
+             "_id_Rol": "a",
+             "nombre_Rol": "archivar",
          }
          return [unRol]
 
-    def create(self,elRol):
+    def create(self,infoRol):
          print("Crear un Rol")
          elRol = Rol(infoRol)
          return elRol.__dict__
     def show(self,id):
          print("Mostrando un Rol con id ", id)
          elRol = {
-             "_id_Rol": "79542749",
-             "nombre_Rol": "Juan Perez",
+             "_id_Rol":id,
+             "nombre_Rol": "archivar",
          }
-         return [elRolRol]
+         return elRol
 
-    def update(self, id, elRol):
+    def update(self, id, infoRol):
         print("Actualizando Rol con id ", id)
         elRol = Rol(infoRol)
         return elRol.__dict__

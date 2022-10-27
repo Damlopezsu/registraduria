@@ -10,18 +10,19 @@ class ControladorPermisorol():
              "_id_Rol": "1111",
          }
          return [unPermisorol]
-    def create(self,elPermisorol):
+    def create(self,infoPermisorol):
          print("Crear un Permisorol")
          elPermisorol = Permisorol(infoPermisorol)
          return elPermisorol.__dict__
     def show(self,id):
          print("Mostrando un Permisorol con id ", id)
          elPermisorol = {
-             "_id_Permisorol": "abc123",
+             "_id_Permisorol": id,
              "_id_Permiso": "123",
              "_id_Rol": "1111",
          }
-    def update(self, id, elPermisorol):
+         return elPermisorol
+    def update(self, id, infoPermisorol):
         print("Actualizando Permisorol con id ", id)
         elPermisorol = Permisorol(infoPermisorol)
         return elPermisorol.__dict__
