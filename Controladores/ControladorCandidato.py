@@ -8,10 +8,11 @@ class ControladorCandidato():
          print("Listar todos los Candidato")
          unCandidato = {
              "cedula_candidato": "123567",
-             "nombre_candidato": "jose",
-             "apellido_candidato": "ruiz",
+             "nombre_cand": "jose",
+             "apellido_cand": "ruiz",
             "num_resolucion": "30",
-            "id_partido": "11",
+            "id_partido": "11"
+
          }
          return [unCandidato]
     def create(self,infoCandidato):
@@ -19,13 +20,14 @@ class ControladorCandidato():
          elCandidato = Candidato(infoCandidato)
          return elCandidato.__dict__
     def show(self,id):
-         print("Mostrando un Candidato con id ", id)
+         print("Mostrando el Candidato con id ", id)
          elCandidato = {
             "cedula_candidato": id,
-             "nombre_candidato": "jose",
-             "apellido_candidato": "ruiz",
+             "nombre_cand": "jose",
+             "apellido_cand": "ruiz",
             "num_resolucion": "30",
-            "id_partido": "11",
+            "id_partido": "11"
+
          }
          return elCandidato
 
@@ -35,5 +37,5 @@ class ControladorCandidato():
         return elCandidato.__dict__
 
     def delete(self, id):
-        print("Elimiando Candidato con id ", id)
+        print("Eliminando Candidato con id ", id)
         return {"deleted_count": 1}
