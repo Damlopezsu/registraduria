@@ -1,41 +1,24 @@
 from Modelos.Candidato import Candidato
-
+from Repositorios.RepositorioCandidato import RepositorioCandidato
 
 class ControladorCandidato():
     def __init__(self):
-         print("Creando ControladorCandidato")
+        self.repositorioCandidato = RepositorioCandidato()
     def index(self):
-         print("Listar todos los Candidato")
-         unCandidato = {
-             "cedula_candidato": "123567",
-             "nombre_cand": "jose",
-             "apellido_cand": "ruiz",
-            "num_resolucion": "30",
-            "id_partido": "11"
-
-         }
-         return [unCandidato]
+        return self.repositorioCandidato.findAll()
     def create(self,infoCandidato):
-         print("Crear un Candidato")
-         elCandidato = Candidato(infoCandidato)
-         return elCandidato.__dict__
+        nuevoCandidato=Candidato(infoCandidato)
+        return self.repositorioCandidato.save(nuevoCandidato)
     def show(self,id):
-         print("Mostrando el Candidato con id ", id)
-         elCandidato = {
-            "cedula_candidato": id,
-             "nombre_cand": "jose",
-             "apellido_cand": "ruiz",
-            "num_resolucion": "30",
-            "id_partido": "11"
-
-         }
-         return elCandidato
-
-    def update(self, id, infoCandidato):
-        print("Actualizando Candidato con id ", id)
-        elCandidato = Candidato(infoCandidato)
+        elCandidato=Candidato(self.repositorioCandidato.findById(id))
         return elCandidato.__dict__
-
-    def delete(self, id):
-        print("Eliminando Candidato con id ", id)
-        return {"deleted_count": 1}
+    def update(self,id,infoCandidato):
+        CandidatoActual=Candidato(self.repositorioCandidato.findById(id))
+        CandidatoActual.cedula_candidato=infoCandidato["cedula_candidato"]
+        CandidatoActual.nombre_cand = infoCandidato["nombre_candidato"]
+        CandidatoActual.apellido_cand = infoCandidato["apellido_candidato"]
+        CandidatoActual.num_resolución = infoCandidato["numero_resolucion"]
+        CandidatoActual._id_partido = infoCandidato["_id_partido"]
+        return self.repositorioCandidato.save(CandidatoActual)
+    def delete(self,id):
+        return self.repositorioCandidato.delete(id)
