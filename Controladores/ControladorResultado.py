@@ -1,7 +1,6 @@
 from Modelos.Resultado import Resultado
 from Repositorios.RepositorioResultado import RepositorioResultado
 
-
 class ControladorResultado():
     def __init__(self):
         self.repositorioResultado = RepositorioResultado()

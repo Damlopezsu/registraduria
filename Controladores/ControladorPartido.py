@@ -4,6 +4,7 @@ from Repositorios.RepositorioPartido import RepositorioPartido
 class ControladorPartido():
     def __init__(self):
         self.repositorioPartido = RepositorioPartido()
+        self.repositorioCandidato = RepositorioCandidato
     def index(self):
         return self.repositorioPartido.findAll()
     def create(self,infoPartido):
@@ -20,3 +21,4 @@ class ControladorPartido():
         return self.repositorioPartido.save(PartidoActual)
     def delete(self,id):
         return self.repositorioPartido.delete(id)
+
