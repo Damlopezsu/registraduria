@@ -4,6 +4,8 @@ from flask import request
 from flask_cors import CORS
 import json
 from waitress import serve
+import pymongo
+import certifi
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -18,6 +20,10 @@ miControladorResultado = ControladorResultado()
 miControladorCandidato = ControladorCandidato()
 miControladorPartido = ControladorPartido()
 
+ca = certifi.where()
+client = pymongo.MongoClient("mongodb+srv://<YulianaBahamon>:<Yuliana13.>@cluster0.dm8hjhl.mongodb.net/db-resgistraduria?retryWrites=true&w=majority",tlsCAFile=ca);
+db = client.test
+print(db)
 
 @app.route("/", methods=['GET'])
 def test():
