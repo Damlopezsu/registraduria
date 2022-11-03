@@ -1,6 +1,5 @@
 {
-  "url-backend": "127.0.0.1",
-  "port": 9999,
- "data-db-conection": "mongodb+srv://yulibahamon:Yuliana13@cluster0.itrgf1r.mongodb.net/bd_resultados?retryWrites=true&w=majority\n",
-  "name-db": "bd_resultados"
+"url-backend": "127.0.0.1",
+"port": 9999,
+
 }

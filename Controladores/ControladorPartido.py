@@ -15,7 +15,7 @@ class ControladorPartido():
         return elPartido.__dict__
     def update(self,id,infoPartido):
         PartidoActual=Partido(self.repositorioPartido.findById(id))
-        PartidoActual._id_partido=infoPartido["_id_partido"]
+        PartidoActual.id_partido=infoPartido["_id_partido"]
         PartidoActual.nombre_partido = infoPartido["nombre_partido"]
         PartidoActual.lema_partido = infoPartido["lema_partido"]
         return self.repositorioPartido.save(PartidoActual)
