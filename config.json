@@ -2,4 +2,8 @@
 "url-backend": "127.0.0.1",
 "port": 9999,
 
+  "data-db-connection": "mongodb+srv://<YulianaBahamon>:<Yuliana13.>@cluster0.dm8hjhl.mongodb.net/db-resgistraduria?retryWrites=true&w=majority",
+  "name-db":"db-registraduria"
+
+
 }
