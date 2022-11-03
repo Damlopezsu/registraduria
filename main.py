@@ -22,7 +22,7 @@ miControladorCandidato = ControladorCandidato()
 miControladorPartido = ControladorPartido()
 
 ca = certifi.where()
-client = pymongo.MongoClient("mongodb+srv://<YulianaBahamon>:<Yuliana13.>@cluster0.dm8hjhl.mongodb.net/db-resgistraduria?retryWrites=true&w=majority",tlsCAFile=ca);
+client = pymongo.MongoClient("mongodb+srv://YulianaBahamon:Yuliana13.@cluster0.dm8hjhl.mongodb.net/db-resgistraduria?retryWrites=true&w=majority",tlsCAFile=ca);
 db = client.test
 print(db)
 
