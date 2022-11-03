@@ -14,8 +14,8 @@ class ControladorMesa():
         return elMesa.__dict__
     def update(self,id,infoMesa):
         MesaActual=Mesa(self.repositorioMesa.findById(id))
-        MesaActual.id_mesa=infoMesa["id_mesa"]
-        MesaActual.cantidad_inscritos = infoMesa["cantidad_inscritos"]
+        MesaActual.num_mesa=infoMesa["num_mesa"]
+        MesaActual.cantidad_inscritos=infoMesa["cantidad_inscritos"]
         return self.repositorioMesa.save(MesaActual)
     def delete(self,id):
         return self.repositorioMesa.delete(id)
