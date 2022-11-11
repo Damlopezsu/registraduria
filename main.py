@@ -3,8 +3,8 @@ from flask import jsonify
 from flask import request
 from flask_cors import CORS
 import json
-
 from waitress import serve
+
 import pymongo
 import certifi
 
@@ -69,28 +69,20 @@ def eliminarMesa(id):
 def getResultados():
     json = miControladorResultado.index()
     return jsonify(json)
-
-
-@app.route("/resultados", methods=['POST'])
-def crearResultado():
-    data = request.get_json()
-    json = miControladorResultado.create(data)
-    return jsonify(json)
-
-
 @app.route("/resultados/<string:id>", methods=['GET'])
 def getResultado(id):
     json = miControladorResultado.show(id)
     return jsonify(json)
-
-
-@app.route("/resultados/<string:id>", methods=['PUT'])
-def modificarResultado(id):
+@app.route("/resultados/mesas/<string:id_mesa>/candidatos/<string:id_candidato>",methods=['POST'])
+def crearInscripcion(id_mesa,id_candidato):
     data = request.get_json()
-    json = miControladorResultado.update(id, data)
+    json=miControladorResultado.create(data,id_mesa,id_candidato)
     return jsonify(json)
-
-
+@app.route("/resultados/mesas/<string:id_mesa>/candidatos/<string:id_candidato>",methods=['PUT'])
+def modificarResultados(id,id_mesa,id_candidato):
+    infoResultado = request.get_json()
+    json=miControladorResultado.update(id,infoResultado,id_mesa,id_candidato)
+    return jsonify(json)
 @app.route("/resultados/<string:id>", methods=['DELETE'])
 def eliminarResultado(id):
     json = miControladorResultado.delete(id)
@@ -122,7 +114,10 @@ def modificarCandidato(id):
     json = miControladorCandidato.update(id, data)
     return jsonify(json)
 
-
+@app.route("/candidatos/<string:id>/partidos/<string:id_partido>",methods=['PUT'])
+def asignarCandidatoPartido(id,id_partido):
+    json=miControladorCandidato.asignarPartido(id,id_partido)
+    return jsonify(json)
 @app.route("/candidatos/<string:id>", methods=['DELETE'])
 def eliminarCandidato(id):
     json = miControladorCandidato.delete(id)

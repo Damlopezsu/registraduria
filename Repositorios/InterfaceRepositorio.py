@@ -32,12 +32,12 @@ tlsCAFile=ca)
             updateItem = {"$set": item}
             x = laColeccion.update_one({"_id": _id}, updateItem)
         else:
-            id = laColeccion.insert_one(item.__dict__)
-            elId = id.inserted_id.__str__()
+            _id = laColeccion.insert_one(item.__dict__)
+            elId = _id.inserted_id.__str__()
 
-            x = laColeccion.find_one({"_id": ObjectId(elId)})
-            x["_id"] = x["_id"].__str__()
-            return self.findById(elId)
+        x = laColeccion.find_one({"_id": ObjectId(elId)})
+        x["_id"] = x["_id"].__str__()
+        return self.findById(elId)
 
     def delete(self, id):
         laColeccion = self.baseDatos[self.coleccion]
@@ -137,7 +137,7 @@ tlsCAFile=ca)
             if theDict[k].__str__().count("object") == 1:
                 newObject = self.ObjectToDBRef(getattr(item, k))
                 setattr(item, k, newObject)
-            return item
+        return item
 
     def ObjectToDBRef(self, item: T):
         nameCollection = item.__class__.__name__.lower()

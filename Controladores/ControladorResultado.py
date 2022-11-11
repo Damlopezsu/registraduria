@@ -1,6 +1,6 @@
 from Modelos.Resultado import Resultado
-from Modelos.Mesa import Mesa
 from Modelos.Candidato import Candidato
+from Modelos.Mesa import Mesa
 from Repositorios.RepositorioResultado import RepositorioResultado
 from Repositorios.RepositorioMesa import RepositorioMesa
 from Repositorios.RepositorioCandidato import RepositorioCandidato
@@ -11,7 +11,7 @@ class ControladorResultado():
         self.repositorioCandidato = RepositorioCandidato()
     def index(self):
         return self.repositorioResultado.findAll()
-    def create(self,id,infoResultado,id_mesa,id_candidato):
+    def create(self,infoResultado,id_mesa,id_candidato):
         nuevoResultado=Resultado(infoResultado)
         elMesa = Mesa(self.repositorioMesa.findById(id_mesa))
         laCandidato = Candidato(self.repositorioCandidato.findById(id_candidato))
