@@ -33,3 +33,6 @@ class ControladorResultado():
         return self.repositorioResultado.save(resultadoActual)
     def delete(self,id):
         return self.repositorioResultado.delete(id)
+
+    def listarInscritosCandidatos(self, id_candidato):
+        return self.repositorioResultado.getListadoResultadoCandidato(id_candidato)

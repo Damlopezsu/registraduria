@@ -87,6 +87,10 @@ def modificarResultados(id,id_mesa,id_candidato):
 def eliminarResultado(id):
     json = miControladorResultado.delete(id)
     return jsonify(json)
+@app.route("/resultados/mesas/<string:id_candidato>",methods=['GET'])
+def inscritosCandidatos(id_candidato):
+    json=miControladorResultado.listarInscritosCandidatos(id_candidato)
+    return jsonify(json)
 
 
 @app.route("/candidatos", methods=['GET'])
